@@ -26,4 +26,5 @@ bool hitable_list::hit(const ray& r, float t_min, float t_max, hit_record& rec) 
     return hit_anything;
 }
 
+
 #endif

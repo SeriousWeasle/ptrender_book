@@ -1,0 +1,33 @@
+﻿  ptrender.cpp
+e:\projects\programming\ptrender_book\headers\vec3.h(50): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\vec3.h(130): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\hitable_list.h(20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\material.h(12): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\material.h(24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\material.h(92): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\camera.h(9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\headers\camera.h(18): error C2065: 'M_PI': undeclared identifier
+e:\projects\programming\ptrender_book\ptrender.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(39): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(40): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(45): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(48): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(54): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(64): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(66): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(83): warning C4305: 'initializing': truncation from 'double' to 'float'
+e:\projects\programming\ptrender_book\ptrender.cpp(101): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(102): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(103): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(104): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+e:\projects\programming\ptrender_book\ptrender.cpp(106): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data

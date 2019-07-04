@@ -36,21 +36,59 @@ float schlick(float cosine, float ref_idx) {
     return r0 + (1-r0)*pow((1-cosine),5);
 }
 
+class texture {
+public:
+	virtual vec3 value(float u, float v, const vec3& p) const = 0;
+};
+
+class checker_texture : public texture {
+public:
+	checker_texture() {}
+	checker_texture(texture *t0, texture *t1) : even(t0), odd(t1) {}
+	virtual vec3 value(float u, float v, const vec3& p) const {
+		float sines = sin(10 * p.x())*sin(10 * p.y())*sin(10 * p.z());
+		if (sines < 0)
+			return odd->value(u, v, p);
+		else
+			return even->value(u, v, p);
+	}
+	texture *odd;
+	texture *even;
+};
+
 class material {
-    public:
-        virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const = 0;
+public:
+	virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const = 0;
+};
+
+class diffuse_light : public material {
+	public:
+		diffuse_light(texture *a) : emit(a) {}
+		virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const { return false; }
+		virtual vec3 emitted(float u, float v, const vec3& p) const { return emit->value(u, v, p); }
+		texture *emit;
+};
+
+class constant_texture : public texture {
+public:
+	constant_texture() {}
+	constant_texture(vec3 c) : color(c) {}
+	virtual vec3 value(float u, float v, const vec3& p) const {
+		return color;
+	}
+	vec3 color;
 };
 
 class lambertian : public material {
     public:
-        lambertian(const vec3& a) : albedo(a) {}
+        lambertian(texture *a) : albedo(a) {}
         virtual bool scatter(const ray& r_in, const hit_record&  rec, vec3& attenuation, ray& scattered) const {
             vec3 target = rec.p + rec.normal + random_in_unit_sphere();
             scattered = ray(rec.p, target-rec.p);
-            attenuation = albedo;
+            attenuation = albedo->value(0,0,rec.p);
             return true;
         }
-        vec3 albedo;
+        texture *albedo;
 };
 
 class metal : public material {
@@ -104,5 +142,27 @@ class dielectric : public material {
         }
     float ref_idx;
 };
+
+/*class image_texture : public texture {
+public:
+	image_texture() {}
+	image_texture(unsigned char *pixels, int A, int B) : data(pixels), nx(A), ny(B) {}
+	virtual vec3 value(float u, float v, const vec3& p) const;
+	unsigned char *data;
+	int nx, ny;
+};
+
+vec3 image_texture::value(float u, float v, const vec3& p) const {
+	int i = (u)*nx;
+	int j = (1 - v)*ny - 0.001;
+	if (i < 0) i = 0;
+	if (j < 0) j = 0;
+	if (i > nx - 1) i = nx - 1;
+	if (j > ny - 1) j = ny - 1;
+	float rx = int(data[3 * i + 3 * nx*j]) / 255.0;
+	float gx = int(data[3 * i + 3 * nx*j + 1]) / 255.0;
+	float bx = int(data[3 * i + 3 * nx*j + 2]) / 255.0;
+	return vec3(rx, gx, bx);
+}*/
 
 #endif
