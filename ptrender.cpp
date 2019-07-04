@@ -78,6 +78,13 @@ hitable *spheres() {
     return new hitable_list(list,5);
 }
 
+struct thread_data {
+    int thread_id;
+    int img_width;
+    int img_height;
+    int img_spp;
+};
+
 int main()
 {
     ofstream outfile;
@@ -92,6 +99,9 @@ int main()
     cout << "Define image spp: ";
     cin >> ns;
     outfile << "P3\n" << nx << " " << ny << "\n255\n";
+    int pcount = 0;
+    int area = nx * ny;
+
     hitable *world;
     world = random_scene();
     vec3 lookfrom(20,3,15);
@@ -115,7 +125,8 @@ int main()
             int ig = int(255.99*col[1]);
             int ib = int(255.99*col[2]);
             outfile << ir << " " << ig << " " << ib << "\n";
-            cout << "Rendering pixel " << i+1 <<", " << ny-j <<endl;
+            pcount ++;
+            cout << "Rendered pixel " <<pcount << " / " << area <<endl;
         }
     }
     outfile.close();
