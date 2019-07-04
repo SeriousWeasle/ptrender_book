@@ -82,9 +82,15 @@ int main()
 {
     ofstream outfile;
     outfile.open ("output.ppm");
-    int nx = 200;
-    int ny = 100;
-    int ns = 100;
+    int nx;
+    int ny;
+    int ns;
+    cout << "Define image width: ";
+    cin >> nx;
+    cout << "Define image height: ";
+    cin >> ny;
+    cout << "Define image spp: ";
+    cin >> ns;
     outfile << "P3\n" << nx << " " << ny << "\n255\n";
     hitable *world;
     world = random_scene();
@@ -109,13 +115,7 @@ int main()
             int ig = int(255.99*col[1]);
             int ib = int(255.99*col[2]);
             outfile << ir << " " << ig << " " << ib << "\n";
-            float currpx = i;
-            float totalpx = nx;
-            float totalrows = ny;
-            float currow = j;
-            float pixelpercent = (currpx*100/totalpx)/totalrows;
-            float renderpercent = ((totalrows-currow-1)+pixelpercent)*100.0/totalrows;
-            cout << "Render is at " << renderpercent << "%\n";
+            cout << "Rendering pixel " << i+1 <<", " << ny-j <<endl;
         }
     }
     outfile.close();
